@@ -36,6 +36,16 @@ class NXCModule:
             context.log.debug(f"Executing command: {command}")
             output = connection.execute(command, True)
 
+        # WMIC may introduce carriage returns and blank lines
+        if output:
+            output = (
+                output.replace("\r\r\n", "\n")
+                .replace("\r\n", "\n")
+                .replace("\r", "")
+            )
+            lines = [ln.strip() for ln in output.splitlines() if ln.strip()]
+            output = "\n".join(lines)
+
         if not output:
             context.log.fail("Failed to retrieve hotfix information")
             return
