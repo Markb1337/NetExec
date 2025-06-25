@@ -59,13 +59,6 @@ NetExec = "nxc.netexec:main"
 nxcdb = "nxc.nxcdb:main"
 
 [tool.poetry]
-name = "netexec"
-description = "The Network Execution tool"
-authors = [
-    "Marshall Hallenbeck <marshall.hallenbeck@gmail.com>",
-    "Alexander Neff <alex99.neff@gmx.de>",
-    "Thomas Seigneuret <seigneuret.thomas@pm.me>"
-]
 exclude = []
 include = [
     "nxc/data/*",
